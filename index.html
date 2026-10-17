@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Basics Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">Web Basics <span>Quiz</span></div>
+    <div class="header-actions">
+      <span id="userLabel"></span>
+      <button id="logoutBtn" class="secondary hidden" type="button">Log out</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="authView" class="card">
+      <h1 id="authTitle">Welcome back</h1>
+      <p id="authDescription">Log in to take the HTML, CSS and JavaScript quiz.</p>
+      <div class="tabs">
+        <button id="loginTab" type="button" class="active">Log in</button>
+        <button id="signupTab" type="button" class="secondary">Sign up</button>
+      </div>
+      <form id="authForm">
+        <div id="nameField" class="field hidden">
+          <label for="name">Name</label>
+          <input id="name" name="name" autocomplete="name" placeholder="Your name" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required minlength="4" placeholder="At least 4 characters" />
+        </div>
+        <button class="full" type="submit" id="authSubmit">Log in</button>
+        <div id="authMessage" role="status"></div>
+      </form>
+      <p class="muted">Demo app: account details are saved in this browser only.</p>
+    </section>
+
+    <section id="homeView" class="card hidden">
+      <h1>Ready for a quick quiz?</h1>
+      <p>20 multiple-choice questions, starting easy and getting a little more challenging. Topics: HTML, CSS and JavaScript.</p>
+      <div class="result-grid">
+        <div class="stat"><strong>20</strong><span class="muted">Questions</span></div>
+        <div class="stat"><strong>3</strong><span class="muted">Topics</span></div>
+        <div class="stat"><strong>1 point</strong><span class="muted">Per answer</span></div>
+      </div>
+      <button id="startBtn" class="full" type="button">Start quiz</button>
+      <div style="margin-top:22px">
+        <h2>Previous attempts</h2>
+        <div id="historyList" class="muted">No attempts yet.</div>
+      </div>
+    </section>
+
+    <section id="quizView" class="card hidden">
+      <div class="quiz-top">
+        <span id="questionCounter" class="muted">Question 1 of 20</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span id="timer" class="pill" aria-live="polite">10:00</span>
+          <span id="topicPill" class="pill">HTML</span>
+        </div>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <h2 id="questionText" class="question"></h2>
+      <div id="options" class="options"></div>
+      <div id="answerFeedback" class="muted" style="margin-top:14px" aria-live="polite"></div>
+      <div class="quiz-footer">
+        <button id="quitBtn" class="secondary" type="button">Exit quiz</button>
+        <button id="nextBtn" type="button" disabled>Next question</button>
+      </div>
+    </section>
+
+    <section id="resultView" class="card hidden">
+      <h1>Quiz complete</h1>
+      <p id="resultMessage">Here is your result.</p>
+      <div class="result-score" id="scoreText">0/20</div>
+      <p id="scorePercent" class="muted"></p>
+      <div class="result-grid">
+        <div class="stat"><strong id="correctCount">0</strong><span class="muted">Correct</span></div>
+        <div class="stat"><strong id="wrongCount">0</strong><span class="muted">Incorrect</span></div>
+        <div class="stat"><strong>20</strong><span class="muted">Total</span></div>
+      </div>
+      <button id="retryBtn" class="full" type="button">Try again</button>
+      <button id="homeBtn" class="full secondary" style="margin-top:10px" type="button">Back to home</button>
+    </section>
+  </main>
+  <footer>Simple practice project · HTML, CSS and JavaScript · No backend</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
